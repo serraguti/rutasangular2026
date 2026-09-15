@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //PARA PODER RECUPERAR PARAMETROS NECESITAMOS ActivatedRoute
 //Y TAMBIEN Params
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-numero.doble.component',
@@ -13,7 +13,18 @@ export class NumeroDobleComponent implements OnInit {
   public doble!: number;
   public numero!: number;
   //RECIBIMOS LOS OBJETOS EN EL CONSTRUCTOR
-  constructor(private _activeRoute: ActivatedRoute){}
+  constructor
+  (private _activeRoute: ActivatedRoute,
+    private _router: Router
+  ){ }
+
+  goToHome(): void {
+    this._router.navigate(["/"]);
+  }
+
+  redirect(num: number):void{
+    this._router.navigate(["/numerodoble", num])
+  }
 
   ngOnInit(): void {
     //NOS SUBSCRIBIMOS A LA RECEPCION DE PARAMETROS

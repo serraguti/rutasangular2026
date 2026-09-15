@@ -1,5 +1,13 @@
 <div>
     <h1 style="color:red">Doble Routing</h1>
+    <button (click)="goToHome()">
+        Go to home
+    </button>
+    <button (click)="redirect(55)">
+        55
+    </button>
+    <button (click)="redirect(102)">102</button>
+    <button (click)="redirect(11)">11</button>
     @if (numero){
         <h2>El doble del número {{numero}} es {{doble}}</h2>
     }@else{
