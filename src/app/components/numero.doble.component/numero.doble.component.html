@@ -1,5 +1,13 @@
 <div>
     <h1 style="color:red">Doble Routing</h1>
+        <li>
+            <a [routerLink]="['/numerodoble']">Doble nada | </a>
+        </li>
+        <li>
+            <a [routerLink]="['/numerodoble', 7]">Doble 7 | </a>
+        </li>
+        <li>
+            <a [routerLink]="['/numerodoble', 42]">Doble 42</a>    
     <button (click)="goToHome()">
         Go to home
     </button>

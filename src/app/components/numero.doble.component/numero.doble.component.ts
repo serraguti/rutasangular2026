@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 //PARA PODER RECUPERAR PARAMETROS NECESITAMOS ActivatedRoute
 //Y TAMBIEN Params
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -10,13 +10,16 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   templateUrl: './numero.doble.component.html',
 })
 export class NumeroDobleComponent implements OnInit {
-  public doble!: number;
+  public doble: number;
   public numero!: number;
   //RECIBIMOS LOS OBJETOS EN EL CONSTRUCTOR
   constructor
   (private _activeRoute: ActivatedRoute,
-    private _router: Router
-  ){ }
+    private _router: Router,
+    private _cdr: ChangeDetectorRef
+  ){ 
+    this.doble = 0;
+  }
 
   goToHome(): void {
     this._router.navigate(["/"]);
@@ -32,10 +35,14 @@ export class NumeroDobleComponent implements OnInit {
       //DENTRO DE PARAMS ES DONDE RECIBIMOS LOS PARAMETROS POR SU :name
       //LA SINTAXIS PARA RECUPERARLOS ES: params['PARAMETER NAME']
       //NUESTRO PARAMETRO ES OPCIONAL
+      console.log('Params recibidos:', parametros); //
       if (parametros['numero'] != null){
         //LOS PARAMETROS SIEMPRE SON DE TIPO String
         this.numero = parseInt(parametros['numero']);
         this.doble = this.numero * 2;
+        //FORZAMOS A DIBUJAR EL RENDER DEL VIEW
+        this._cdr.detectChanges(); 
+        console.log('Doble calculado:', this.doble); 
       }
     })
   }
