@@ -1,0 +1,21 @@
+<div>
+    <h1>Route dinámicos</h1>
+    <button (click)="generarNumeroRandom()">
+        Generar Random
+    </button>
+    <h2 style="color:blue">
+        El doble de {{numero }} es {{doble}}
+    </h2>
+    <hr/>
+    <!-- RECORRIDO POR EL ARRAY DE NUMEROS Y GENERAMOS UN 
+     LINK DINAMICO PARA CADA NUMERO -->
+     <ul>
+        @for (num of numerosRandom; track num){
+            <li>
+                <a [routerLink]="['/numerosrouter', num]">
+                    Doble {{num}}
+                </a>
+            </li>
+        }
+     </ul>
+</div>

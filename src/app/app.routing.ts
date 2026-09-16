@@ -9,6 +9,7 @@ import { Routes, RouterModule } from "@angular/router";
 //EXPORTAR LAS RUTAS
 import { ModuleWithProviders } from "@angular/core";
 import { NumeroDobleComponent } from "./components/numero.doble.component/numero.doble.component";
+import { Numerosroutedinamicos } from "./components/numerosroutedinamicos/numerosroutedinamicos";
 //DECLARAMOS UN ARRA DE TIPO Routes PARA CADA RUTA, COMPUESTO POR 
 //path, component en un elemento JSON.
 const appRoutes: Routes = [
@@ -17,6 +18,8 @@ const appRoutes: Routes = [
     { path: "musica", component: Musicacomponent},
     { path: "numerodoble", component: NumeroDobleComponent},
     { path: "numerodoble/:numero", component: NumeroDobleComponent},
+    { path: "numerosrouter", component: Numerosroutedinamicos},
+    { path: "numerosrouter/:numero", component: Numerosroutedinamicos},
     { path: "**", component: Notfoundcomponent}
 ]
 //DEBEMOS EXPORTAR LAS RUTAS HACIA NUESTRO MODULO PARA QUE LAS RECONOZCA

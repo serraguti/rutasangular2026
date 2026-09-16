@@ -8,6 +8,7 @@ import { Notfoundcomponent } from './components/notfoundcomponent/notfoundcompon
 import { routing, appRoutingProvider } from './app.routing';
 import { Menucomponent } from './components/menucomponent/menucomponent';
 import { NumeroDobleComponent } from './components/numero.doble.component/numero.doble.component';
+import { Numerosroutedinamicos } from './components/numerosroutedinamicos/numerosroutedinamicos';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NumeroDobleComponent } from './components/numero.doble.component/numero
     Notfoundcomponent,
     Menucomponent,
     NumeroDobleComponent,
+    Numerosroutedinamicos,
   ],
   imports: [BrowserModule, routing],
   providers: [provideBrowserGlobalErrorListeners(), appRoutingProvider],
